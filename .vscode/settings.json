@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./Sesion-03/Tarjeta"
+    ]
+}
