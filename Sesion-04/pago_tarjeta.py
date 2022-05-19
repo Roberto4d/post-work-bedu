@@ -3,7 +3,7 @@
 Convierte las funciones del módulo tarjeta a métodos"""
 
 class Tarjeta:
-    def crear_tarjeta(self):
+    def __init__(self):
         nombre = input("Ingresa el nombre de la tarjeta: ")
         self.nombre = nombre.title()
         self.tasa =  float(input("Ingresa la tasa de interes: "))

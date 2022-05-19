@@ -1,8 +1,8 @@
 from pago_tarjeta import Tarjeta
 
 class Usuario(Tarjeta):
-    def __init__(self, nombre):
-        self.nombre = nombre
+    def __init__(self, nombres):
+        self.nombres = nombres
         self.tarjetas = []
 
     def lista_tarjetas(self):
@@ -11,23 +11,37 @@ class Usuario(Tarjeta):
             capturar = str(input("Desea capturar otra tarjeta? (si/no): "))
             capturar = capturar.upper()
             if capturar == "SI":
-                tarjeta = self.crear_tarjeta()
-                tarjeta = [self.nombre,self.tasa,self.deuda,self.pago,self.cargo]
+                tarjeta = super().__init__()
                 self.captura_nueva_deuda()
-                self.tarjetas.append(tarjeta)    
+                tarjeta = [self.nombre,self.tasa,self.deuda,self.pago,self.cargo, self.deuda_despues_pago,self.interes_del_mes,self.deuda_recalculada,self.nueva_deuda]
+                self.tarjetas.append(tarjeta) 
+                self.generar_reporte()  
             else:
                 bandera = False 
         print(self.tarjetas)
-
-        for t in self.tarjetas:
-            self.generar_reporte()
-    
+  
     def __str__(self):
         suma = 0 
-        for i in range(len(self.tarjetas)):
-            print(i)
+        for t in range(len(self.tarjetas)):
             suma += 1
-        print(f"El usuario: {self.nombre} y tiene {suma} tarjetas")
+        print(f"El usuario: {self.nombres} y tiene {suma} tarjetas")
     
     def __del__(self):
-        print(f"Objeto {self.nombre} de clase MiClase destruido")
+        bandera = True
+        while bandera:
+            numero = int(input("Numero de su tarjeta que desea borrar: "))
+            if numero != 0:
+                for t in range(len(self.tarjetas)):
+                    if numero == t+1:
+                        print(f"Objeto {self.nombre} de su tarjeta destruido")
+                        self.tarjetas.pop(t)
+                        self.generar_reporte()
+            else:
+                bandera = False
+    
+
+            
+            
+            
+
+        
