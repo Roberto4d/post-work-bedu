@@ -3,17 +3,17 @@
 Convierte las funciones del módulo tarjeta a métodos"""
 
 class Tarjeta:
-    def __init__(self):
-       nombre = input("Ingresa el nombre del titular de la tarjeta: ")
-       self.nombre = nombre.title()
-       self.tasa =  float(input("Ingresa la tasa de interes: "))
-       self.deuda = float(input("Ingresa deuda: "))
-       self.pago = float(input("Ingresa pago a realizar: "))
-       self.cargo = float(input("Ingresa nuevos cargos: "))
-       if self.deuda < self.pago:
+    def crear_tarjeta(self):
+        nombre = input("Ingresa el nombre de la tarjeta: ")
+        self.nombre = nombre.title()
+        self.tasa =  float(input("Ingresa la tasa de interes: "))
+        self.deuda = float(input("Ingresa deuda: "))
+        self.pago = float(input("Ingresa pago a realizar: "))
+        self.cargo = float(input("Ingresa nuevos cargos: "))
+        if self.deuda < self.pago:
             print('No es posible realizar un pago mayor a la deuda!')
-            self.__init__()
-        
+            self.crear_tarjeta()
+
     def captura_nueva_deuda(self):
         deuda_despues_pago = self.deuda - self.pago
         interesMensual = (((self.tasa / 365)*.01) * 30)
@@ -79,13 +79,12 @@ class Tarjeta:
 
 
 
+    
+    
+        
 
 
 
 
 
-tarjeta1 = Tarjeta()
-tarjeta1.captura_nueva_deuda()
-tarjeta1.generar_reporte()
-# tarjeta1.pago_recurrente()
-# tarjeta1.multiples_pagos()
+
