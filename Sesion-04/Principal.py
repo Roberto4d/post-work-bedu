@@ -13,4 +13,4 @@ usuario1 = Usuario("Roberto")
 usuario1.lista_tarjetas()
 usuario1.__str__()
 usuario1.__del__()
-
+usuario1.imprimir_lista()
