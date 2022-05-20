@@ -1,3 +1,4 @@
+from re import U
 from pago_tarjeta import Tarjeta
 from Ususario import Usuario
 
@@ -9,8 +10,6 @@ from Ususario import Usuario
 # tarjeta1.pago_recurrente()
 # tarjeta1.multiples_pagos()
 
-usuario1 = Usuario("Roberto")
-usuario1.lista_tarjetas()
-usuario1.__str__()
-usuario1.__del__()
-usuario1.imprimir_lista()
+roberto = Usuario("Roberto")
+roberto.agregar_tarjeta()
+roberto.agregar_tarjeta()

@@ -12,7 +12,7 @@ class Tarjeta:
         self.cargo = float(input("Ingresa nuevos cargos: "))
         if self.deuda < self.pago:
             print('No es posible realizar un pago mayor a la deuda!')
-            self.crear_tarjeta()
+            self.__init__()
 
     def captura_nueva_deuda(self):
         deuda_despues_pago = self.deuda - self.pago
